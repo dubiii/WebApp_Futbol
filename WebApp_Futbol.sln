@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp_Futbol", "WebApp_Futbol\WebApp_Futbol.csproj", "{49251738-7D3D-49DE-B3B4-2A1A63D9C57C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_Futbol", "API_Futbol\API_Futbol.csproj", "{CEF17D0D-C6F5-4F4A-A8F4-132770DA2D30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{4C5EB02D-6288-4B11-8413-C638C94CD378}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49251738-7D3D-49DE-B3B4-2A1A63D9C57C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49251738-7D3D-49DE-B3B4-2A1A63D9C57C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49251738-7D3D-49DE-B3B4-2A1A63D9C57C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49251738-7D3D-49DE-B3B4-2A1A63D9C57C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEF17D0D-C6F5-4F4A-A8F4-132770DA2D30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEF17D0D-C6F5-4F4A-A8F4-132770DA2D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEF17D0D-C6F5-4F4A-A8F4-132770DA2D30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEF17D0D-C6F5-4F4A-A8F4-132770DA2D30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C5EB02D-6288-4B11-8413-C638C94CD378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C5EB02D-6288-4B11-8413-C638C94CD378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C5EB02D-6288-4B11-8413-C638C94CD378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C5EB02D-6288-4B11-8413-C638C94CD378}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
