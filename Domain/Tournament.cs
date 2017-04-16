@@ -18,7 +18,15 @@ namespace Domain
         [DataType(DataType.ImageUrl)]
         public string Logo { get; set; }
 
-        public virtual ICollection<TournamentGroup> Groups { get; set; } 
+        [Display(Name = "Is Active?")]
+        public bool IsActive { get; set; }
+
+        [Display(Name = "Order")]
+        public int Order { get; set; }
+        public virtual ICollection<TournamentGroup> Groups { get; set; }
+
+        public virtual ICollection<Date> Dates { get; set; }
+
 
     }
 }

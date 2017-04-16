@@ -25,5 +25,10 @@ namespace Domain
         public int TournamentId { get; set; }
 
         public virtual Tournament Tournament { get; set; }
+
+        //public virtual ICollection<Match> Matches { get; set; }
+
+        //public virtual ICollection<TournamentTeam> TournamentTeams { get; set; }
+
     }
 }

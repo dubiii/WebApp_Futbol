@@ -23,12 +23,47 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Logo)
+            @if (!string.IsNullOrEmpty(Model.Logo))
+            {
+                <img src="@Url.Content(Model.Logo)" alt="Image" style="width: 100px; height: 150px; max-width: 100%; height: auto;" />
+            }
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.TournamentId }) |
+    @Html.ActionLink("Editar Torneo", "Edit", new {id = Model.TournamentId}) |
+    @Html.ActionLink("Crear Grupo", "CreateGroup", new {id = Model.TournamentId}) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+<h4>Grupos</h4>
+@if (Model.Groups.Count == 0)
+{
+    <h5>No hay Grupos registrados en este torneo</h5>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Groups.FirstOrDefault().Name)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Groups.OrderBy(b => b.Name))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditGroup", new { id = item.TournamentGroupId }) |
+                    @Html.ActionLink("Details", "DetailsGroup", new { id = item.TournamentGroupId }) |
+                    @Html.ActionLink("Delete", "DeleteGroup", new { id = item.TournamentGroupId }, new { @class = "btn btn-danger", onclick = "return confirm('Esta Seguro?');"})
+                </td>
+            </tr>
+        }
+
+    </table>
+}
