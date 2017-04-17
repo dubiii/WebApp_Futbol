@@ -26,6 +26,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Groups)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dates)
+        </th>
         <th></th>
     </tr>
 
@@ -47,7 +50,10 @@
             @Html.DisplayFor(modelItem => item.Order)
         </td>
         <td>
-           @Html.DisplayFor(modelItem => item.Groups.Count)
+            @Html.DisplayFor(modelItem => item.Groups.Count)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dates.Count)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.TournamentId }) |

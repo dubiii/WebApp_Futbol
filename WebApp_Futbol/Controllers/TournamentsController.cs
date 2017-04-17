@@ -16,6 +16,98 @@ namespace WebApp_Futbol.Controllers
         
         private DataContextLocal db = new DataContextLocal();
 
+        #region Dates
+        // GET: Dates/Create
+        public async Task<ActionResult> CreateDate(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var tournament = await db.Tournaments.FindAsync(id);
+
+            if (tournament == null)
+            {
+                return HttpNotFound();
+            }
+
+            var date = new Date { TournamentId = tournament.TournamentId};
+            return View(date);
+        }
+
+        // POST: Dates/Create
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
+        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CreateDate(Date date)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Dates.Add(date);
+                await db.SaveChangesAsync();
+                return RedirectToAction(string.Format("Details/{0}", date.TournamentId));
+            }
+
+            return View(date);
+        }
+
+        // GET: Dates/Edit/5
+        public async Task<ActionResult> EditDate(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var date = await db.Dates.FindAsync(id);
+
+            if (date == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(date);
+        }
+
+        // POST: Dates/Edit/5
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
+        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditDate(Date date)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(date).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+                return RedirectToAction(string.Format("Details/{0}", date.TournamentId));
+            }
+            
+            return View(date);
+        }
+
+        public async Task<ActionResult> DeleteDate(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var date = await db.Dates.FindAsync(id);
+
+            if (date == null)
+            {
+                return HttpNotFound();
+            }
+
+            db.Dates.Remove(date);
+            await db.SaveChangesAsync();
+            return RedirectToAction(string.Format("Details/{0}", date.TournamentId));
+        }
+        #endregion
+
         #region TournamentGroups
         // GET: TournamentGroups/Create
         public async Task<ActionResult> CreateGroup(int? id)
