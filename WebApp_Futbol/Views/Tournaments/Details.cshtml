@@ -53,6 +53,9 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Groups.FirstOrDefault().Name)
                     </th>
+                    <th>
+                       #Equipos
+                    </th>
                     <th></th>
                 </tr>
 
@@ -63,8 +66,11 @@
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
                         <td>
+                            @Html.DisplayFor(modelItem => item.TournamentTeams.Count)
+                        </td>
+                        <td>
                             @Html.ActionLink("Edit", "EditGroup", new { id = item.TournamentGroupId }) |
-                            @*@Html.ActionLink("Details", "DetailsGroup", new { id = item.TournamentGroupId }) |*@
+                            @Html.ActionLink("Details", "DetailsGroup", new { id = item.TournamentGroupId }) |
                             @Html.ActionLink("Delete", "DeleteGroup", new { id = item.TournamentGroupId }, new { @class = "btn btn-danger", onclick = "return confirm('Esta Seguro?');" })
                         </td>
                     </tr>
